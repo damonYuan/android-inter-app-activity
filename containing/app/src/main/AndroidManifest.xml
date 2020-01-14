@@ -19,7 +19,7 @@
 
         <activity
             android:name="com.damonyuan.containing.ExtensionActivity"
-            android:label="ActionActivity"
+            android:label="ExtensionActivity"
             android:taskAffinity="">
             <intent-filter>
                 <action android:name="android.intent.action.MY_HOST_ACTION" />

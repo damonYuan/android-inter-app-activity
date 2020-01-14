@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">host</string>
+    <string name="app_name">containing</string>
+    <string name="MY_TESTING_KEY">MY_TESTING_KEY</string>
 </resources>

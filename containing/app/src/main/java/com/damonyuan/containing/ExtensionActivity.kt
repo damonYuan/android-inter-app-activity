@@ -1,6 +1,7 @@
 package com.damonyuan.containing
 
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,10 @@ class ExtensionActivity : AppCompatActivity() {
         this.button.setOnClickListener {
             action()
         }
+        val sharedPref = applicationContext.getSharedPreferences("containing", 0)
+        val test = sharedPref.getString(getString(R.string.MY_TESTING_KEY), "Unknown")
+        Log.d("ExtensionActivity test", test)
+        this.textview.text = test
     }
 
     private fun action() {
