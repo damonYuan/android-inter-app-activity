@@ -1,6 +1,7 @@
 package com.damonyuan.host
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -22,7 +23,15 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent()
         intent.action = "android.intent.action.MY_HOST_ACTION"
         intent.addCategory(Intent.CATEGORY_DEFAULT)
-        startActivityForResult(intent, 10001)
+        try {
+            startActivityForResult(intent, 10001)
+        } catch (e: ActivityNotFoundException) {
+            // either the containing app is not installed or the version doesn't meet
+            // the minimum requirement.
+            // here we can redirect the user to Play Store/website to download/upgrade
+            // the containing app.
+            Log.e("MainActivity", "Fail to found the activity")
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
